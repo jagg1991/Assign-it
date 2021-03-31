@@ -16,6 +16,9 @@ User.init({
         unique: true,
         validate: {
             isEmail: true,
+            notNull: {
+                msg: 'Please enter a email!'
+            }
         },
     },
     password: {
@@ -37,3 +40,5 @@ User.init({
 
 
 );
+
+module.exports = User;
