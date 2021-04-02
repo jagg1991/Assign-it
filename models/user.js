@@ -22,7 +22,7 @@ User.init({
         validate: {
             isEmail: true,
             notNull: {
-                msg: 'Please enter a email!'
+                msg: 'Please enter an email!'
             }
         },
     },
