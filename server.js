@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // turn on routes
 app.use(routes);
+app.use(express.static('public'))
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
