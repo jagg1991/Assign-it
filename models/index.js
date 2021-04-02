@@ -1,11 +1,12 @@
 const User = require('./User');
 const Task = require('./Tasks');
 
-Task.belongsToMany(User, {
-    through: {
-        model: User,
-        unique: false,
-    }
+Task.belongsTo(User, {
+    foreignKey: 'user_id',
 });
+
+User.hasMany(Task, {
+    foreignKey: 'user_id',
+})
 
 module.exports = { User, Task }

@@ -37,6 +37,7 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false,
     }
+    // manager_id:
 },
     {
         sequelize,
