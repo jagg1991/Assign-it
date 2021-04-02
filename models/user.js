@@ -10,6 +10,11 @@ User.init({
         primaryKey: true,
         autoIncrement: true
     },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,6 +33,10 @@ User.init({
             len: [12]
         },
     },
+    role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
 },
     {
         sequelize,
