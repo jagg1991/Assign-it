@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
+// The `/api/user/:id` endpoint
 router.get('/:id', async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
