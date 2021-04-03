@@ -22,7 +22,7 @@ User.init({
         validate: {
             isEmail: true,
             notNull: {
-                msg: 'Please enter a email!'
+                msg: 'Please enter an email!'
             }
         },
     },
@@ -37,6 +37,7 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false,
     }
+    // manager_id:
 },
     {
         sequelize,
