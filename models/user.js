@@ -19,6 +19,11 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -26,7 +31,11 @@ User.init({
         validate: {
             isEmail: true,
             notNull: {
+<<<<<<< HEAD
                 msg: 'Please enter an email!',
+=======
+                msg: 'Please enter an email!'
+>>>>>>> 7733b90ce4359510f2cd9a77c765823c015e3473
             }
         },
     },
@@ -37,6 +46,11 @@ User.init({
             len: [12],
         },
     },
+    role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
+    // manager_id:
 },
 {
     hooks: {
