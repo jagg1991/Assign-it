@@ -31,11 +31,7 @@ User.init({
         validate: {
             isEmail: true,
             notNull: {
-<<<<<<< HEAD
                 msg: 'Please enter an email!',
-=======
-                msg: 'Please enter an email!'
->>>>>>> 7733b90ce4359510f2cd9a77c765823c015e3473
             }
         },
     },
