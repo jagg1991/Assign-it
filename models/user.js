@@ -10,6 +10,11 @@ User.init({
         primaryKey: true,
         autoIncrement: true
     },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -17,7 +22,7 @@ User.init({
         validate: {
             isEmail: true,
             notNull: {
-                msg: 'Please enter a email!'
+                msg: 'Please enter an email!'
             }
         },
     },
@@ -28,6 +33,11 @@ User.init({
             len: [12]
         },
     },
+    role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
+    // manager_id:
 },
     {
         sequelize,
