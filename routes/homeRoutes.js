@@ -1,13 +1,16 @@
 const router = require('express').Router();
 const { Task, User } = require('../models')
 
-router.get('/home', (req, res) => {
+router.get('/', (req, res) => {
     //calling handlebars file
     res.render('homepage')
 });
 
 router.get('/login', (req, res) => {
     //calling handlebars file
+    if (req.session.logged_in) {
+        res.redirect('manager')
+    }
     res.render('login')
 });
 

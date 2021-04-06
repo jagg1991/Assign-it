@@ -1,3 +1,4 @@
+const { User } = require("../../models");
 
 
 const loginFormHandler = async (event) => {
@@ -8,7 +9,7 @@ const loginFormHandler = async (event) => {
 
     if (user && password) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/user/:id;', {
+        const response = await fetch('/api/user/login;', {
             method: 'POST',
             body: JSON.stringify({ user, password }),
             headers: { 'Content-Type': 'application/json' },
