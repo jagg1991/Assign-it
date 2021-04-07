@@ -128,3 +128,10 @@ form .signup-link a{
 form .signup-link a:hover{
   text-decoration: underline;
 }
+
+.jumbotron{
+  background-color: black;
+  text-align: center;
+  color: whitesmoke;
+  border-bottom: solid 5px #000e91;
+}
