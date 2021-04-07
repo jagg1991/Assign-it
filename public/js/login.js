@@ -1,4 +1,5 @@
-const { User } = require("../../models");
+
+
 
 
 const loginFormHandler = async (event) => {
@@ -9,7 +10,7 @@ const loginFormHandler = async (event) => {
 
     if (user && password) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/user/login;', {
+        const response = await fetch('/api/user/login', {
             method: 'POST',
             body: JSON.stringify({ user, password }),
             headers: { 'Content-Type': 'application/json' },
@@ -17,7 +18,18 @@ const loginFormHandler = async (event) => {
 
         if (response.ok) {
             // If successful, redirect the browser to the profile page
-            document.location.replace('/manager');
+            // document.location.replace('/profile');
+            response.json()
+                .then((json) => {
+                    console.log(json)
+                    if (json.user.role = 'manager') {
+                        document.location.replace('/manager');
+                    }
+                    else {
+                        document.location.replace('/employee');
+                    }
+
+                })
         } else {
             alert(response.statusText);
         }
