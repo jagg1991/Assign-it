@@ -278,3 +278,12 @@
 	</script>
 	
 	<script src="dashboard_yew.js"></script>
+<body>
+	<div class="jumbotron">
+		<div class="col-12 m-auto text-center">
+<h1 class="mt-1">Time Cards</h1>
+
+<p>
+	<img src="page1.html.jpg" alt="pictur" height="600" width="1800">
+</p>
+ 
