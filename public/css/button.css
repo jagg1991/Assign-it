@@ -1,6 +1,6 @@
 
 .button {
-  /* Сбрасываем дефолтные стили */
+  /* Resets to the default style */
   border: none;
   outline: none;
   display: inline-block;
@@ -8,9 +8,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 16px;
-  /* Можно также использовать любые встроенные и кастомные шрифты, например, отсюда  */
   font-family: Roboto, Verdana, Tahoma, sans;
-  /* Тут можно поэкспериментировать */
   padding: 12px 16px;
   border-radius: 100px;
   color: #fff;
