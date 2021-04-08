@@ -5,7 +5,9 @@ const withAuth = require('../utils/auth');
 router.get('/', (req, res) => {
     //calling handlebars file
     res.render('homepage', {
-        logged_in: req.session.logged_in
+        style: 'home.css',
+        logged_in: req.session.logged_in,
+
     })
 });
 
@@ -14,17 +16,31 @@ router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('manager')
     }
-    res.render('login')
+    res.render('login', {
+        style: 'login.css'
+    })
 });
 
 router.get('/signup', (req, res) => {
     //calling handlebars file
-    res.render('signup')
+    res.render('signup', {
+        style: 'signup.css'
+    })
 });
 
 router.get('/manager', (req, res) => {
     //calling handlebars file
-    res.render('manager')
+    res.render('manager', {
+        style: 'manager.css',
+        style: 'manager2.css',
+
+    })
+});
+router.get('/employee', (req, res) => {
+    //calling handlebars file
+    res.render('employee', {
+        style: "employee.css"
+    })
 });
 
 
