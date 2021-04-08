@@ -112,5 +112,5 @@ var lineChart = new Chart(ctx, {
 		maintainAspectRatio: false,
 		bezierCurve: false,
 	}
-})
+});
 
