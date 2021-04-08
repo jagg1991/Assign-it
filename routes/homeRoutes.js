@@ -28,14 +28,14 @@ router.get('/signup', (req, res) => {
     })
 });
 
-router.get('/manager', (req, res) => {
-    //calling handlebars file
-    res.render('manager', {
-        style: 'manager.css',
-        style: 'manager2.css',
+// router.get('/manager', (req, res) => {
+//     //calling handlebars file
+//     res.render('manager', {
+//         style: 'manager.css',
+//         style: 'manager2.css',
 
-    })
-});
+//     })
+// });
 router.get('/employee', (req, res) => {
     //calling handlebars file
     res.render('employee', {
@@ -44,7 +44,7 @@ router.get('/employee', (req, res) => {
 });
 
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/manager', withAuth, async (req, res) => {
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
@@ -54,9 +54,30 @@ router.get('/profile', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
-        res.render('profile', {
+        res.render('manager', {
             ...user,
-            logged_in: true
+            logged_in: true,
+            style: 'manager.css',
+            style: 'manager2.css',
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+router.get('/employee', withAuth, async (req, res) => {
+    try {
+        // Find the logged in user based on the session ID
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Task }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('employee', {
+            ...user,
+            logged_in: true,
+            style: "employee.css"
         });
     } catch (err) {
         res.status(500).json(err);
