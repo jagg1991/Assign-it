@@ -5,7 +5,9 @@ const withAuth = require('../utils/auth');
 router.get('/', (req, res) => {
     //calling handlebars file
     res.render('homepage', {
-        logged_in: req.session.logged_in
+        style: 'home.css',
+        logged_in: req.session.logged_in,
+
     })
 });
 
@@ -14,21 +16,35 @@ router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('manager')
     }
-    res.render('login')
+    res.render('login', {
+        style: 'login.css'
+    })
 });
 
 router.get('/signup', (req, res) => {
     //calling handlebars file
-    res.render('signup')
+    res.render('signup', {
+        style: 'signup.css'
+    })
 });
 
-router.get('/manager', (req, res) => {
+// router.get('/manager', (req, res) => {
+//     //calling handlebars file
+//     res.render('manager', {
+//         style: 'manager.css',
+//         style: 'manager2.css',
+
+//     })
+// });
+router.get('/employee', (req, res) => {
     //calling handlebars file
-    res.render('manager')
+    res.render('employee', {
+        style: "employee.css"
+    })
 });
 
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/manager', withAuth, async (req, res) => {
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
@@ -38,9 +54,30 @@ router.get('/profile', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
-        res.render('profile', {
+        res.render('manager', {
             ...user,
-            logged_in: true
+            logged_in: true,
+            style: 'manager.css',
+            style: 'manager2.css',
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+router.get('/employee', withAuth, async (req, res) => {
+    try {
+        // Find the logged in user based on the session ID
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Task }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('employee', {
+            ...user,
+            logged_in: true,
+            style: "employee.css"
         });
     } catch (err) {
         res.status(500).json(err);
