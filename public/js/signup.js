@@ -5,7 +5,7 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const role = document.querySelector('.form-select').value;
-    console.log(role)
+
 
     if (name && email && password && role) {
         console.log('sucess')

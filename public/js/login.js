@@ -22,11 +22,14 @@ const loginFormHandler = async (event) => {
             response.json()
                 .then((json) => {
                     console.log(json)
-                    if (json.user.role = 'manager') {
-                        document.location.replace('/manager');
-                    }
-                    else {
-                        document.location.replace('/employee');
+                    switch (json.user.role) {
+                        case 'manager':
+                            document.location.replace('/manager');
+                            break;
+                        case 'employee':
+                            document.location.replace('/employee');
+                        default:
+                            break;
                     }
 
                 })
@@ -41,3 +44,4 @@ const loginFormHandler = async (event) => {
 document
     .querySelector('.login-form')
     .addEventListener('submit', loginFormHandler);
+
