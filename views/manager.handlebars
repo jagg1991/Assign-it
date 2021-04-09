@@ -373,21 +373,25 @@
                                     <ul>
                                         <li><a href="#"><i class="fa fa-cogs"></i>Employee</a>
                                             <ul>
-                                                <div class="card-content">
-                                                    <li><a href="#">1. Robert</a>
-                                                        <ul>
-                                                            <!-- 												
-												<li><a href="#">1. Project</a>
-											  <li><a href="#">CSS</a></li>
-											  <li><a href="#">HTML</a></li> -->
-                                                        </ul>
+                                                {{!-- <div class="card-content"> --}}
+
+
+
+                                                    {{#if employees.length}}
+                                                    {{#each employees as | employee |}}
+                                                    <li><a href="#">{{employee.name}}</a></li>
+                                                    {{/each}}
+                                                    {{/if}}
+
+                                                    {{!-- <li><a href="#">1. Robert</a>
+
 
                                                     </li>
                                                     <li><a href="#">2. John Evan</a></li>
                                                     <li><a href="#">3. Alex Vern</a></li>
                                                     <li><a href="#">4. Peter Pier</a></li>
                                                     <li><a href="#">5. Joseph Gruag</a></li>
-                                                    <li><a href="#">6. Leo Smit</a></li>
+                                                    <li><a href="#">6. Leo Smit</a></li> --}}
 
                                             </ul>
                                         </li>

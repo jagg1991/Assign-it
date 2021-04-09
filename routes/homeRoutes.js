@@ -54,11 +54,24 @@ router.get('/manager', withAuth, async (req, res) => {
 
         const user = userData.get({ plain: true });
 
+        const allUsers = await User.findAll({
+            where: {
+                role: 'employee'
+            }
+
+        })
+
+        const employees = allUsers.map((user) => user.get({ plain: true }));
+        console.log(employees)
+
+
         res.render('manager', {
+
             ...user,
             logged_in: true,
             style: 'manager.css',
             style: 'manager2.css',
+            employees,
         });
     } catch (err) {
         res.status(500).json(err);
