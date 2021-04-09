@@ -1,4 +1,5 @@
 const router = require('express').Router();
+// const { DataTypes } = require('sequelize/types');
 const { User, Task } = require('../../models');
 
 // The `/api/user` endpoint
@@ -56,6 +57,17 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
+
 router.post('/login', async (req, res) => {
     console.log(req.body)
     try {
@@ -84,6 +96,9 @@ router.post('/login', async (req, res) => {
 
             res.json({ user: userData, message: 'You are now logged in!' });
         });
+
+
+
 
     } catch (err) {
         console.log(err)

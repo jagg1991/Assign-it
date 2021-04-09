@@ -36,10 +36,19 @@ router.get('/signup', (req, res) => {
 
 //     })
 // });
-router.get('/employee', (req, res) => {
+router.get('/employee', withAuth, async (req, res) => {
     //calling handlebars file
+    const taskData = await Task.findAll({
+        where: {
+            user_id: req.session.user_id
+        }
+    });
+
+    const tasks = taskData.map((task) => task.get({ plain: true }))
+
     res.render('employee', {
-        style: "employee.css"
+        style: "employee.css",
+        tasks,
     })
 });
 
@@ -61,6 +70,11 @@ router.get('/manager', withAuth, async (req, res) => {
 
         })
 
+        const allTask = await Task.findAll()
+
+        const tasks = allTask.map((task) => task.get({ plain: true }))
+        console.log(tasks)
+
         const employees = allUsers.map((user) => user.get({ plain: true }));
         console.log(employees)
 
@@ -72,6 +86,7 @@ router.get('/manager', withAuth, async (req, res) => {
             style: 'manager.css',
             style: 'manager2.css',
             employees,
+            tasks
         });
     } catch (err) {
         res.status(500).json(err);
@@ -96,5 +111,14 @@ router.get('/employee', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// router.get('/signup', (req, res) => {
+//     if (req.session.loggedIn) {
+//         res.redirect('/');
+//         return;
+//     }
+//     res.render('signup');
+// });
+
 
 module.exports = router
