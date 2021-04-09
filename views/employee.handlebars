@@ -1,82 +1,5 @@
-<div class="navbar">
-    <!-- nav left -->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link">
-                <i class="fas fa-bars" onclick="collapseSidebar()"></i>
-
-
-
-            </a>
-        </li>
-
-    </ul>
-
-
-
-    <!-- end nav left -->
-    <!-- form -->
-    <form class="navbar-search">
-        <input type="text" name="Search" class="navbar-search-input" placeholder="Search Employee...">
-        <i class="fas fa-search"></i>
-    </form>
-    <!-- end form -->
-    <!-- nav right -->
-    <ul class="navbar-nav nav-right">
-        <li class="nav-item mode">
-            <a class="nav-link" href="#" onclick="switchTheme()">
-                <i class="fas fa-moon dark-icon"></i>
-                <i class="fas fa-sun light-icon"></i>
-            </a>
-        </li>
-
-        <div>
-
-
-            <form method="get" action="/">
-                <button type="submit">Login</button>
-            </form>
-            <form method="get" action="/signup">
-                <button type="submit">Sign Up</button>
-            </form>
-
-
-
-        </div>
-
-
-        </a>
-        <ul id="notification-menu" class="dropdown-menu notification-menu">
-            <div class="dropdown-menu-header">
-                <span>
-                    Notifications
-                </span>
-            </div>
-            <div class="dropdown-menu-content overlay-scrollbar scrollbar-hover">
-                <li class="dropdown-menu-item">
-                    <a href="#" class="dropdown-menu-link">
-                        <div>
-                            <i class="fas fa-gift"></i>
-                        </div>
-
-                    </a>
-                </li>
-            </div>
-            <div class="dropdown-menu-footer">
-                <span>
-                    View all notifications
-                </span>
-            </div>
-        </ul>
-        </li>
-
-        <!-- end nav right -->
-</div>
-
-
-
 <div class="wrapper">
-    <div class="row">
+    {{!-- <div class="row">
         <div class="col-3 col-m-4 col-sm-4">
             <div class="counter bg-primary">
 
@@ -114,7 +37,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="row">
         <div class="col-4 col-m-6 col-sm-6">
@@ -148,5 +71,7 @@
 
 
             </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-            <script src="employee.js"></script>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="employee.js"></script>

@@ -1,3 +1,13 @@
+body{
+	height: 100vh;
+	width: 100%;
+	background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+	font-family: 'Roboto', sans-serif;
+
+	color: var(--main-color);
+	margin: 0;
+  }
+
 :root {
 	--primary-color: #4834d4;
 	--success-color: #6ab04c;
@@ -57,12 +67,7 @@
 	box-sizing: border-box;
 }
 
-body {
-	font-family: 'Roboto', sans-serif;
-	background: var(--main-bg-color);
-	color: var(--main-color);
-	margin: 0;
-}
+
 
 .navbar {
 	display: flex;
@@ -645,5 +650,14 @@ table th {
     margin-top: 10px;
     padding: 0 5px;
     border-radius: 3px
+  }
+
+  .jumbotron{
+	background-color: black;
+	text-align: center;
+	color: whitesmoke;
+	border-bottom: solid 5px #000e91;
+	position: relative;
+	margin-top: auto;
   }
  
