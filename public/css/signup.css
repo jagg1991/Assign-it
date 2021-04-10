@@ -119,3 +119,19 @@ form .btn button{
   color: whitesmoke;
   border-bottom: solid 5px #000e91;
 }
+
+footer{
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	width: 100%;
+	color: whitesmoke;
+	text-align: center;
+	font-size: smaller;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	background-color: black;
+	border-top: solid 5px #000e91;
+	
+  }
