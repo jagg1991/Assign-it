@@ -27,6 +27,34 @@
 </div>
 <!-- end sidebar -->
 <!-- main content -->
+<section class="container" id="task">
+
+    <div class="card">
+
+
+
+        <form class="form task">
+            <h2>Add a project</h2>
+            <div class="data">
+                <label for="project">Project</label>
+                <input type="text" class="form-input" id="project" />
+            </div>
+            <div class="data">
+                <label for="discription" class="form-label">Discription</label>
+                <textarea class="form-input" id="discription"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+</section>
+
+
+
+
+
+
 <section class="container">
     <div class="row">
         <div class="col-3 col-m-6 col-sm-6">
@@ -76,63 +104,98 @@
                         Assign
 
 
-                        <table>
+                        <form>
 
                             <!-- <link rel="stylesheet" href="task.css"> -->
-                            <header>
-                                <nav class="dws-menu">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-cogs"></i>Employee</a>
-                                            <ul>
-                                                {{!-- <div class="card-content"> --}}
+
+                            {{!-- <nav class="dws-menu"> --}}
+                                <ul>
+                                    <li><select class="form-select" aria-label="Default select example">
+                                            <option selected>Open this select menu</option>
+                                            {{#if employees.length}}
+                                            {{#each employees as | employee |}}
+
+                                            <option value="1">{{employee.name}}</option>
+                                            {{/each}}
+                                            {{/if}}
+                                        </select>
+                                    </li>
+                                    <li><select class="form-select" aria-label="Default select example">
+
+                                            <option selected>Open this select menu</option>
+                                            {{#if tasks.length}}
+                                            {{#each tasks as | task |}}
 
 
 
-                                                    {{#if employees.length}}
-                                                    {{#each employees as | employee |}}
-                                                    <li><a href="#">{{employee.name}}</a></li>
-                                                    {{/each}}
-                                                    {{/if}}
+                                            <option value="1">{{task.title}}</option>
+                                            {{/each}}
+                                            {{/if}}
+                                        </select>
+                                    </li>
+                                    <li><select class="form-select" aria-label="Default select example">
+                                            <option selected>Open this select menu</option>
+                                            <option value="completed">Completed</option>
+                                            <option value="in-progress">In progress</option>
+                                        </select>
+                                    </li>
+                                    <li><a href="#"><input type="date">
+                                            </input></a>
+                                    </li>
+
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">Assign it!</button>
+                                    </div>
+                                    {{!-- <li><a href="#"><i class="fa fa-cogs"></i>Employee</a>
+                                        <ul>
 
 
 
-                                            </ul>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i>Project</a>
-                                            <ul>
+
+                                            {{#if employees.length}}
+                                            {{#each employees as | employee |}}
+                                            <li><a href="#">{{employee.name}}</a></li>
+                                            {{/each}}
+                                            {{/if}}
 
 
-                                                {{#if tasks.length}}
-                                                {{#each tasks as | task |}}
-                                                <li><a href="#">{{task.title}}</a></li>
-                                                {{/each}}
-                                                {{/if}}
 
-                                            </ul>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-cogs"></i>Status</a>
-                                            <ul>
-                                                <li><a href="#">1. Completed</a></li>
-                                                <li><a href="#">2. In progress</a></li>
-                                                <li><a href="#">3. Pending</a></li>
-                                                <li><a href="#">5. In progress</a></li>
-                                                <li><a href="#">6. Completed</a></li>
-                                            </ul>
-                                        </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>Project</a>
+                                        <ul>
 
-                                        <li><a href="#"><i class="fa fa-envelope-open"></i>Due date</a>
-                                            <ul>
-                                                <li><a href="#"><input type="date">
-                                                        </input></a>
-                                                </li>
 
-                                            </ul>
+                                            {{#if tasks.length}}
+                                            {{#each tasks as | task |}}
+                                            <li><a href="#">{{task.title}}</a></li>
+                                            {{/each}}
+                                            {{/if}}
 
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </header>
-                            <tbody>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-cogs"></i>Status</a>
+                                        <ul>
+                                            <li><a href="#">1. Completed</a></li>
+                                            <li><a href="#">2. In progress</a></li>
+                                            <li><a href="#">3. Pending</a></li>
+                                            <li><a href="#">5. In progress</a></li>
+                                            <li><a href="#">6. Completed</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#"><i class="fa fa-envelope-open"></i>Due date</a>
+                                        <ul>
+                                            <li><a href="#"><input type="date">
+                                                    </input></a>
+                                            </li>
+
+                                        </ul>
+
+                                    </li> --}}
+                                </ul>
+
+                        </form>
 
                     </h3>
                     <i class="fas fa-ellipsis-h"></i>
@@ -200,8 +263,22 @@
         </div>
     </div>
 </section>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>
+                        Progress Chart
+                    </h3>
+                </div>
+                <div class="card-content">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 <!-- end main content -->
 <!-- import script -->

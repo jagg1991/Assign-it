@@ -105,12 +105,41 @@ var data = {
 	}]
 }
 
-var lineChart = new Chart(ctx, {
-	type: 'line',
-	data: data,
-	options: {
-		maintainAspectRatio: false,
-		bezierCurve: false,
-	}
-});
+// var lineChart = new Chart(ctx, {
+// 	type: 'line',
+// 	data: data,
+// 	options: {
+// 		maintainAspectRatio: false,
+// 		bezierCurve: false,
+// 	}
+// });
 
+
+const projectFormHandler = async (event) => {
+	event.preventDefault();
+
+	const project = document.querySelector('#project').value;
+	const discription = document.querySelector('#discription').value;
+
+
+
+	if (project && discription) {
+		console.log('sucess')
+		console.log(project, discription)
+		const response = await fetch('/api/task', {
+			method: 'POST',
+			body: JSON.stringify({ title, task }),
+			headers: { 'Content-Type': 'application/json' },
+		});
+
+		if (response.ok) {
+			document.location.reload();
+		} else {
+			alert(response.statusText);
+		}
+	}
+};
+
+document
+	.querySelector('.task')
+	.addEventListener('submit', projectFormHandler);

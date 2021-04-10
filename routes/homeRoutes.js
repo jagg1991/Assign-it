@@ -38,6 +38,14 @@ router.get('/signup', (req, res) => {
 // });
 router.get('/employee', withAuth, async (req, res) => {
     //calling handlebars file
+
+    const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        include: [{ model: Task }],
+    });
+
+    const user = userData.get({ plain: true });
+
     const taskData = await Task.findAll({
         where: {
             user_id: req.session.user_id
@@ -49,6 +57,8 @@ router.get('/employee', withAuth, async (req, res) => {
     res.render('employee', {
         style: "employee.css",
         tasks,
+        ...user,
+        logged_in: true,
     })
 });
 
@@ -73,7 +83,7 @@ router.get('/manager', withAuth, async (req, res) => {
         const allTask = await Task.findAll()
 
         const tasks = allTask.map((task) => task.get({ plain: true }))
-        console.log(tasks)
+        // console.log(tasks)
 
         const employees = allUsers.map((user) => user.get({ plain: true }));
         console.log(employees)

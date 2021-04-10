@@ -1,77 +1,61 @@
 <div class="wrapper">
-    {{!-- <div class="row">
-        <div class="col-3 col-m-4 col-sm-4">
-            <div class="counter bg-primary">
 
-                <p>
-                    <i class="fas fa-tasks"></i>
-                </p>
-                <h3>10.00 hours</h3>
 
-            </div>
-        </div>
-        <div class="col-3 col-m-4 col-sm-4">
-            <div class="counter bg-warning">
-                <p>
-                    <i class="fas fa-spinner"></i>
-                </p>
-                <h3>03/30 Tue </h3>
 
-            </div>
-        </div>
-        <div class="col-3 col-m-4 col-sm-4">
-            <div class="counter bg-success">
-                <p>
-                    <i class="fas fa-check-circle"></i>
-                </p>
-                <h3>03/31 Wed</h3>
-
-            </div>
-        </div>
-        <div class="col-3 col-m-4 col-sm-4">
-            <div class="counter bg-danger">
-                <p>
-                    <i class="fas fa-bug"></i>
-                </p>
-                <h3>04/01 Thu</h3>
-
-            </div>
-        </div>
-    </div> --}}
-
-    <div class="row">
-        <div class="col-4 col-m-6 col-sm-6">
+    <section class="container">
+        {{!-- <div class="col-4 col-m-6 col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    <h3>
-                        Table
-                    </h3>
-                    <i class="fas fa-ellipsis-h"></i>
-                </div>
-                <div class="card-content">
-
-                    {{#if tasks.length}}
-                    {{#each tasks as | task |}}
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">{{task.title}}</h5>
-                        </div>
-                        <div class="card-body">
-
-                            <p class="card-text"> {{task.task}}
-                            </p>
-
-                        </div>
+                    <h1>Welcome, {{name}}! </h1>
+                    <div class="card-body">
+                        <h2>Here are the projects that are assigned to you!</h2>
                     </div>
-                    {{/each}}
-                    {{/if}}
-
                 </div>
+            </div>
+        </div> --}}
 
-
+        <div class="card text-center">
+            <div class="card-header">
+                Assign it!
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Welcome, {{name}}!</h5>
+                <p class="card-text">Here are the projects that are assigned to you. If you have any quesitons, please
+                    reach out to your manager. Thank you!</p>
 
             </div>
+            <div class="card-footer text-muted">
+                {{role}}
+            </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <script src="employee.js"></script>
+        <div class="row">
+            <div class="col-4 col-m-6 col-sm-6">
+
+
+
+                {{#if tasks.length}}
+                {{#each tasks as | task |}}
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">{{task.title}}</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <p class="card-text"> {{task.task}}
+                        </p>
+
+                    </div>
+                </div>
+                {{/each}}
+                {{/if}}
+
+            </div>
+
+
+
+        </div>
+</div>
+</div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script src="js/employee.js"></script>
