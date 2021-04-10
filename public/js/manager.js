@@ -120,20 +120,22 @@ const projectFormHandler = async (event) => {
 
 	const project = document.querySelector('#project').value;
 	const discription = document.querySelector('#discription').value;
-
+	console.log(project, discription)
 
 
 	if (project && discription) {
 		console.log('sucess')
 		console.log(project, discription)
+
 		const response = await fetch('/api/task', {
+
 			method: 'POST',
 			body: JSON.stringify({ title, task }),
 			headers: { 'Content-Type': 'application/json' },
 		});
 
 		if (response.ok) {
-			document.location.reload();
+			document.location.toString();
 		} else {
 			alert(response.statusText);
 		}
