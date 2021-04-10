@@ -28,8 +28,9 @@ body{
   .container{
 
 	background: #fff;
-	width: 25%;
+	width: 35%;
 	margin-top: 100px;
+	margin-bottom: 100px;
 	padding: 30px;
 	box-shadow: 0 0 8px rgba(0,0,0,0.1);
   }
@@ -40,6 +41,7 @@ body{
 	margin-top: 100px;
 	padding: 30px;
 	box-shadow: 0 0 8px rgba(0,0,0,0.1);
+	
   }
 
   .container .text{
@@ -48,3 +50,19 @@ body{
 	text-align: center;
   }
   
+  
+footer{
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	width: 100%;
+	color: whitesmoke;
+	text-align: center;
+	font-size: smaller;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	background-color: black;
+	border-top: solid 5px #000e91;
+	
+  }
