@@ -93,7 +93,7 @@ router.get('/manager', withAuth, async (req, res) => {
 
             ...user,
             logged_in: true,
-            style: 'manager.css',
+
             style: 'manager2.css',
             employees,
             tasks
