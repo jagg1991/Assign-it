@@ -633,22 +633,7 @@ body{
 	overflow-x: auto;
 }
 
-table {
-	border-collapse: collapse;
-	width: 100%;
-}
 
-table td {
-	border-top: 1px solid var(--second-bg-color);
-	padding: 15px;
-}
-
-table th {
-	border-top: 1px solid var(--second-bg-color);
-	border-bottom: 1px solid var(--second-bg-color);
-	padding: 15px 12px;
-	text-align: left;
-}
 
 .dot i {
 	display: inline-block;
