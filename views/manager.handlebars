@@ -82,7 +82,7 @@
                         Assign
 
 
-                        <form>
+                        <form class="form delegate">
 
                             <ul>
                                 <li><select class="form-select" aria-label="Default select example">
@@ -90,7 +90,7 @@
                                         {{#if employees.length}}
                                         {{#each employees as | employee |}}
 
-                                        <option value="1">{{employee.name}}</option>
+                                        <option value="1" id="employee">{{employee.name}}</option>
                                         {{/each}}
                                         {{/if}}
                                     </select>
@@ -103,7 +103,7 @@
 
 
 
-                                        <option value="1">{{task.title}}</option>
+                                        <option value="1" id="">{{task.title}}</option>
                                         {{/each}}
                                         {{/if}}
                                     </select>

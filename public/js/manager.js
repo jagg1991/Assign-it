@@ -120,12 +120,12 @@ const projectFormHandler = async (event) => {
 
 	const project = document.querySelector('#project').value;
 	const discription = document.querySelector('#discription').value;
-	console.log(project, discription)
+	// console.log(project, discription)
 
 
 	if (project && discription) {
 		console.log('sucess')
-		console.log(project, discription)
+		// console.log(project, discription)
 
 		const response = await fetch('/api/task', {
 
@@ -145,3 +145,19 @@ const projectFormHandler = async (event) => {
 document
 	.querySelector('.task')
 	.addEventListener('submit', projectFormHandler);
+
+
+
+
+
+const delegateFormHandler = async (event) => {
+	event.preventDefault();
+
+
+	const status = document.querySelector('.form-select').value;
+	console.log(status)
+};
+
+document
+	.querySelector('.delegate')
+	.addEventListener('submit', delegateFormHandler);

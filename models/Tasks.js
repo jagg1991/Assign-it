@@ -24,6 +24,10 @@ Task.init(
             type: DataTypes.DATE,
             allowNull: true,
         },
+        status: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
