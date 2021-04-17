@@ -58,61 +58,11 @@ window.onclick = function (event) {
 	openCloseDropdown(event)
 }
 
-function closeAllDropdown() {
-	var dropdowns = document.getElementsByClassName('dropdown-expand')
-	for (var i = 0; i < dropdowns.length; i++) {
-		dropdowns[i].classList.remove('dropdown-expand')
-	}
-}
 
-function openCloseDropdown(event) {
-	if (!event.target.matches('.dropdown-toggle')) {
-		// 
-		// Close dropdown when click out of dropdown menu
-		// 
-		closeAllDropdown()
-	} else {
-		var toggle = event.target.dataset.toggle
-		var content = document.getElementById(toggle)
-		if (content.classList.contains('dropdown-expand')) {
-			closeAllDropdown()
-		} else {
-			closeAllDropdown()
-			content.classList.add('dropdown-expand')
-		}
-	}
-}
 
-// var ctx = document.getElementById('myChart')
-// ctx.height = 500
-// ctx.width = 500
-// var data = {
-// 	labels: ['January', 'February', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-// 	datasets: [{
-// 		fill: false,
-// 		label: 'Completed',
-// 		borderColor: successColor,
-// 		data: [120, 115, 130, 100, 123, 88, 99, 66, 120, 52, 59],
-// 		borderWidth: 2,
-// 		lineTension: 0,
-// 	}, {
-// 		fill: false,
-// 		label: 'Issues',
-// 		borderColor: dangerColor,
-// 		data: [66, 44, 12, 48, 99, 56, 78, 23, 100, 22, 47],
-// 		borderWidth: 2,
-// 		lineTension: 0,
-// 	}]
-// }
 
-// var lineChart = new Chart(ctx, {
-// 	type: 'line',
-// 	data: data,
-// 	options: {
-// 		maintainAspectRatio: false,
-// 		bezierCurve: false,
-// 	}
-// });
+
+E
 
 
 const projectFormHandler = async (event) => {
@@ -120,12 +70,12 @@ const projectFormHandler = async (event) => {
 
 	const project = document.querySelector('#project').value;
 	const discription = document.querySelector('#discription').value;
-	console.log(project, discription)
+	// console.log(project, discription)
 
 
 	if (project && discription) {
 		console.log('sucess')
-		console.log(project, discription)
+		// console.log(project, discription)
 
 		const response = await fetch('/api/task', {
 
@@ -145,3 +95,51 @@ const projectFormHandler = async (event) => {
 document
 	.querySelector('.task')
 	.addEventListener('submit', projectFormHandler);
+
+
+
+
+
+const delegateFormHandler = async (event) => {
+	event.preventDefault();
+
+
+	const employee = document.querySelector('#employee').value;
+	const task = document.querySelector('#task').value;
+	const status = document.querySelector('#status').value;
+	const date = document.querySelector('#date').value;
+	console.log(employee);
+	console.log(task);
+	console.log(status);
+	console.log(date);
+
+	if (task) {
+		console.log('sucess')
+		// console.log(project, discription)
+		let body = {};
+		if (status) body.status = status;
+		if (date) body.due = date;
+		if (employee) body.user_id = employee;
+		console.log(body);
+
+		const response = await fetch(`api/task/${task}`, {
+
+			method: 'PUT',
+			body: JSON.stringify(body),
+			headers: { 'Content-Type': 'application/json' },
+		});
+
+		console.log(response)
+		if (response.ok) {
+			// document.location.reload();
+		} else {
+			alert(response.statusText);
+		}
+	}
+
+
+};
+
+document
+	.querySelector('.delegate')
+	.addEventListener('submit', delegateFormHandler);

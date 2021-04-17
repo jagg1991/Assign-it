@@ -18,10 +18,14 @@ Task.init(
         },
         task: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         due: {
             type: DataTypes.DATE,
+            allowNull: true,
+        },
+        status: {
+            type: DataTypes.STRING,
             allowNull: true,
         },
         user_id: {

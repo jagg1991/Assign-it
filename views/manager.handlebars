@@ -82,39 +82,40 @@
                         Assign
 
 
-                        <form>
+                        <form class="form delegate">
 
                             <ul>
-                                <li><select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
+                                <li><select class="form-select" id="employee" aria-label="Default select example">
+                                        <option value="" selected>Open this select menu</option>
                                         {{#if employees.length}}
                                         {{#each employees as | employee |}}
 
-                                        <option value="1">{{employee.name}}</option>
+                                        <option value="{{employee.id}}">{{employee.name}}</option>
                                         {{/each}}
                                         {{/if}}
                                     </select>
                                 </li>
-                                <li><select class="form-select" aria-label="Default select example">
+                                <li>
+                                    <select class="form-select" id="task" aria-label="Default select example">
 
-                                        <option selected>Open this select menu</option>
+                                        <option value="" selected>Open this select menu</option>
                                         {{#if tasks.length}}
                                         {{#each tasks as | task |}}
 
 
 
-                                        <option value="1">{{task.title}}</option>
+                                        <option class='task' value="{{task.id}}">{{task.title}}</option>
                                         {{/each}}
                                         {{/if}}
                                     </select>
                                 </li>
-                                <li><select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
+                                <li><select class="form-select" id="status" aria-label="Default select example">
+                                        <option value="" selected>Open this select menu</option>
                                         <option value="completed">Completed</option>
                                         <option value="in-progress">In progress</option>
                                     </select>
                                 </li>
-                                <li><a href="#"><input type="date">
+                                <li><a href="#"><input id="date" type="date">
                                         </input></a>
                                 </li>
 
