@@ -18,7 +18,7 @@ Task.init(
         },
         task: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         due: {
             type: DataTypes.DATE,

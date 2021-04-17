@@ -40,6 +40,21 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.put('/:id', async (req, res) => {
+    try {
+        const taskData = await Task.update(req.body, {
+            where: { id: req.params.id },
+
+        });
+        if (!taskData) {
+            res.status(404).json({ message: "No task found with that ID!" })
+        }
+        res.status(200).json(taskData);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
 router.delete('/:id', async (req, res) => {
     try {
         const taskData = await Task.destroy({

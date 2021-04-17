@@ -86,7 +86,7 @@ router.get('/manager', withAuth, async (req, res) => {
         // console.log(tasks)
 
         const employees = allUsers.map((user) => user.get({ plain: true }));
-        console.log(employees)
+
 
 
         res.render('manager', {
